@@ -20,21 +20,35 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return Sizer(builder: (context, orientation, deviceType) {
-      return GetMaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'MOVIE',
-        theme: ThemeData.dark().copyWith(
-          primaryColor: kPrimaryColor,
-          scaffoldBackgroundColor: kPrimaryColor,
-        ),
-        home: BlocProvider(
-          create: (context) =>
-              MovieCubitCubit(repository: RemoteMovieRepository()),
-          child: MyHomePage(),
-        ),
-      );
-    });
+    return FutureBuilder(
+      future: Init.instance.initialize(),
+      builder: (context, AsyncSnapshot snapshot) {
+        // Show splash screen while waiting for app resources to load:
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return Sizer(
+            builder: (context, orientation, deviceType) {
+              return MaterialApp(home: Splash());
+            },
+          );
+        } else {
+          return Sizer(builder: (context, orientation, deviceType) {
+            return GetMaterialApp(
+              debugShowCheckedModeBanner: false,
+              title: 'MOVIE',
+              theme: ThemeData.dark().copyWith(
+                primaryColor: kPrimaryColor,
+                scaffoldBackgroundColor: kPrimaryColor,
+              ),
+              home: BlocProvider(
+                create: (context) =>
+                    MovieCubitCubit(repository: RemoteMovieRepository()),
+                child: MyHomePage(),
+              ),
+            );
+          });
+        }
+      },
+    );
   }
 }
 
@@ -91,5 +105,30 @@ class _MyHomePageState extends State<MyHomePage> {
             );
           }),
         ));
+  }
+}
+
+class Splash extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: kPrimaryColor,
+      body: Center(
+        child: Text(
+          "MOVIE",
+          style:
+              kAppBarTitleStyle.copyWith(color: Colors.white, fontSize: 24.sp),
+        ),
+      ),
+    );
+  }
+}
+
+class Init {
+  Init._();
+  static final instance = Init._();
+
+  Future initialize() async {
+    await Future.delayed(const Duration(seconds: 3));
   }
 }
