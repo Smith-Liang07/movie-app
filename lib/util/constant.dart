@@ -22,6 +22,8 @@ class DB {
 ''';
 }
 
+const kThemoviedbImageURL = "https://image.tmdb.org/t/p/w300";
+
 const kMainGreenColor = Color(0xFF37A45E);
 const kMainOrangeColor = Color(0xFFE58901);
 const kMainBlueColor = Color(0xFF2C78C5);
@@ -59,10 +61,6 @@ final kMovieCardDescStyle =
     TextStyle(fontSize: 10.sp, fontWeight: FontWeight.w300);
 
 final kDetailMovieTitleStyle =
-    TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w600);
-final kDetailMovieTagStyle =
     TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w600);
 final kDetailMovieDescStyle =
-    TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w300);
-final kDetailMovieStoryLineStyle =
-    TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w600);
+    TextStyle(fontSize: 12.sp, fontWeight: FontWeight.w300);

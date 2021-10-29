@@ -6,7 +6,6 @@ import 'package:sobatbisnis_assesment/helper/api_base_helper.dart';
 import 'package:sobatbisnis_assesment/model/movie_response.dart';
 
 class RemoteMovieRepository {
-  // final String _apiKey = "78b9f63937763a206bff26c070b94158";
   final String _apiKey = "169ecf2f2f0e3acd10c2ff1b2db0358d";
 
   ApiBaseHelper _apiBaseHelper = ApiBaseHelper(httpClient: http.Client());

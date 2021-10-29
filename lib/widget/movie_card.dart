@@ -1,13 +1,13 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:get/get.dart';
 import 'package:sobatbisnis_assesment/model/movie_response.dart';
+import 'package:sobatbisnis_assesment/screens/movie_detail.dart';
 import 'package:sobatbisnis_assesment/util/star_generator.dart'
     as starCalculator;
 import 'package:sizer/sizer.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:sobatbisnis_assesment/util/constant.dart';
-
-const kThemoviedbImageURL = "https://image.tmdb.org/t/p/w300";
 
 class MovieCard extends StatelessWidget {
   final Movie movie;
@@ -26,7 +26,9 @@ class MovieCard extends StatelessWidget {
         rating: movie.voteAverage.toDouble(), starSize: 2.h);
 
     return GestureDetector(
-      onTap: () async {},
+      onTap: () {
+        Get.to(MovieDetailScreen(themeColor: themeColor, movie: movie));
+      },
       child: Padding(
         padding: EdgeInsets.all(4.w),
         child: Stack(

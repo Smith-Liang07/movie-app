@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
+import 'package:get/get.dart';
 import 'package:sobatbisnis_assesment/bloc/cubit/movie_cubit_cubit.dart';
 import 'package:sobatbisnis_assesment/repository/remote_movie_repository.dart';
 import 'package:sobatbisnis_assesment/screens/coming_soon.dart';
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Sizer(builder: (context, orientation, deviceType) {
-      return MaterialApp(
+      return GetMaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'MOVIE',
         theme: ThemeData.dark().copyWith(
