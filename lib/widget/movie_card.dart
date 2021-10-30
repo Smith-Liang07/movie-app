@@ -22,8 +22,8 @@ class MovieCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Widget> stars = starCalculator.getStars(
-        rating: movie.voteAverage.toDouble(), starSize: 2.h);
+    List<Widget> stars =
+        starCalculator.getStars(rating: movie.voteAverage, starSize: 2.h);
 
     return GestureDetector(
       onTap: () {

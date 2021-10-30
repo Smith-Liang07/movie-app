@@ -1,26 +1,82 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
-class DB {
-  static String DATABASE_NAME = 'movie.db';
+const String DATABASE_NAME = 'movie.db';
 
-  static String CREATE_MOVIE_TABLE = '''
-    create table movie (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      name TEXT,
-      url TEXT
-    )
+// video INTEGER,
+// adult INTEGER,
+const String CREATE_POPULAR_MOVIE_TABLE = '''
+  create table movie_popular (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    vote_count INTEGER,
+    vote_average REAL,
+    title TEXT,
+    popularity INTEGER,
+    poster_path TEXT,
+    original_language TEXT,
+    original_title TEXT,
+    backdrop_path TEXT,
+    overview TEXT,
+    release_date TEXT
+  )
 ''';
 
-  static String CREATE_REVIEW_TABLE = '''
-    create table movie_review (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      name TEXT,
-      review TEXT,
-      rate REAL
-    )
+const String CREATE_COMING_SOON_MOVIE_TABLE = '''
+  create table movie_coming_soon (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    vote_count INTEGER,
+    vote_average REAL,
+    title TEXT,
+    popularity INTEGER,
+    poster_path TEXT,
+    original_language TEXT,
+    original_title TEXT,
+    backdrop_path TEXT,
+    overview TEXT,
+    release_date TEXT
+  )
 ''';
-}
+
+const String CREATE_NOW_PLAYING_MOVIE_TABLE = '''
+  create table movie_now_playing (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    vote_count INTEGER,
+    vote_average REAL,
+    title TEXT,
+    popularity INTEGER,
+    poster_path TEXT,
+    original_language TEXT,
+    original_title TEXT,
+    backdrop_path TEXT,
+    overview TEXT,
+    release_date TEXT
+  )
+''';
+
+const String CREATE_TOP_RATED_MOVIE_TABLE = '''
+  create table movie_top_rated (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    vote_count INTEGER,
+    vote_average REAL,
+    title TEXT,
+    popularity INTEGER,
+    poster_path TEXT,
+    original_language TEXT,
+    original_title TEXT,
+    backdrop_path TEXT,
+    overview TEXT,
+    release_date TEXT
+  )
+''';
+
+const String CREATE_REVIEW_TABLE = '''
+  create table movie_review (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    review TEXT,
+    rate REAL
+  )
+''';
 
 const kThemoviedbImageURL = "https://image.tmdb.org/t/p/w300";
 

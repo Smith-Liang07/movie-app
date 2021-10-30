@@ -12,7 +12,7 @@ class LocalCommentRepository {
     final Database database = await databaseFuture;
     final commentMap = await database.query(COMMENT_TABLE_NAME);
     commentList =
-        commentMap.map((pokemon) => MovieComment.fromMap(pokemon)).toList();
+        commentMap.map((comment) => MovieComment.fromMap(comment)).toList();
     return commentList;
   }
 

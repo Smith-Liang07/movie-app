@@ -27,7 +27,7 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
   void initState() {
     super.initState();
     stars = starCalculator.getStars(
-        rating: widget.movie.voteAverage.toDouble(), starSize: 15.sp);
+        rating: widget.movie.voteAverage, starSize: 15.sp);
   }
 
   @override

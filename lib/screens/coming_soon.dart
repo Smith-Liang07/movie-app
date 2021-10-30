@@ -33,14 +33,31 @@ class _ComingSoonState extends State<ComingSoon> {
         backgroundColor: kAppBarColor,
       ),
       body: Center(
-        child: BlocBuilder<MovieCubitCubit, MovieCubitState>(
+        child: BlocConsumer<MovieCubitCubit, MovieCubitState>(
+          listener: (context, state) {
+            if (state is RemoteMovieCubitLoaded) {
+              context
+                  .read<MovieCubitCubit>()
+                  .updateLocalMovieDatabase(state.movies, MovieType.UPCOMING);
+            }
+          },
           builder: (context, state) {
             if (state is MovieCubitInitial) {
               return SpinKitChasingDots(
                 color: Colors.green,
               );
             }
-            if (state is MovieCubitLoaded) {
+            if (state is RemoteMovieCubitLoaded) {
+              var movieCards = List.generate(state.movies.length, (index) {
+                return MovieCard(
+                    movie: state.movies[index], themeColor: kPrimaryColor);
+              });
+              return MovieCardContainer(
+                  themeColor: kPrimaryColor,
+                  scrollController: _scrollController,
+                  movieCards: movieCards);
+            }
+            if (state is LocalMovieCubitLoaded) {
               var movieCards = List.generate(state.movies.length, (index) {
                 return MovieCard(
                     movie: state.movies[index], themeColor: kPrimaryColor);

@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:sobatbisnis_assesment/bloc/comment/cubit/comment_cubit.dart';
 import 'package:sobatbisnis_assesment/bloc/cubit/movie_cubit_cubit.dart';
 import 'package:sobatbisnis_assesment/repository/local_comment_repository.dart';
+import 'package:sobatbisnis_assesment/repository/local_movie_repository.dart';
 import 'package:sobatbisnis_assesment/repository/remote_movie_repository.dart';
 import 'package:sobatbisnis_assesment/screens/coming_soon.dart';
 import 'package:sobatbisnis_assesment/screens/now_playing.dart';
@@ -38,8 +39,9 @@ class MyApp extends StatelessWidget {
       return MultiBlocProvider(
         providers: [
           BlocProvider(
-            create: (context) =>
-                MovieCubitCubit(repository: RemoteMovieRepository()),
+            create: (context) => MovieCubitCubit(
+                remoteMovieRepository: RemoteMovieRepository(),
+                localMovieRepository: LocalMovieRepository()),
           ),
           BlocProvider(
             create: (context) =>

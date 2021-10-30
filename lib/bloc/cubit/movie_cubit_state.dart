@@ -5,11 +5,18 @@ abstract class MovieCubitState {}
 
 class MovieCubitInitial extends MovieCubitState {}
 
-class MovieCubitLoaded extends MovieCubitState {
+class RemoteMovieCubitLoaded extends MovieCubitState {
   final List<Movie> movies;
   final MovieType movieType;
 
-  MovieCubitLoaded({required this.movies, required this.movieType});
+  RemoteMovieCubitLoaded({required this.movies, required this.movieType});
+}
+
+class LocalMovieCubitLoaded extends MovieCubitState {
+  final List<Movie> movies;
+  final MovieType movieType;
+
+  LocalMovieCubitLoaded({required this.movies, required this.movieType});
 }
 
 class MovieCubitError extends MovieCubitState {

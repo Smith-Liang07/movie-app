@@ -18,15 +18,19 @@ class DatabaseHelper {
 
   Future<Database> _initDB() async {
     Directory directory = await getApplicationDocumentsDirectory();
-    String databasePath = directory.path + "/" + DB.DATABASE_NAME;
+    String databasePath = directory.path + "/" + DATABASE_NAME;
+    print(databasePath);
 
     var db = await openDatabase(databasePath, version: 1, onCreate: _onCreate);
     return db;
   }
 
   void _onCreate(Database db, int newVersion) async {
-    await db.execute(DB.CREATE_MOVIE_TABLE);
-    await db.execute(DB.CREATE_REVIEW_TABLE);
+    await db.execute(CREATE_POPULAR_MOVIE_TABLE);
+    await db.execute(CREATE_TOP_RATED_MOVIE_TABLE);
+    await db.execute(CREATE_NOW_PLAYING_MOVIE_TABLE);
+    await db.execute(CREATE_COMING_SOON_MOVIE_TABLE);
+    await db.execute(CREATE_REVIEW_TABLE);
   }
 
   Future close() async {
