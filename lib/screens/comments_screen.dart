@@ -91,7 +91,7 @@ class _MovieCommentsScreenState extends State<MovieCommentsScreen> {
                     });
               }
               if (state is CommentError) {
-                return Text(state.errMsg);
+                return Center(child: Text(state.errMsg));
               }
               return Container();
             },

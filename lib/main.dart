@@ -23,46 +23,45 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    // return
-    // FutureBuilder(
-    //   future: Init.instance.initialize(),
-    //   builder: (context, AsyncSnapshot snapshot) {
-    //     // Show splash screen while waiting for app resources to load:
-    //     if (snapshot.connectionState == ConnectionState.waiting) {
-    //       return Sizer(
-    //         builder: (context, orientation, deviceType) {
-    //           return MaterialApp(home: Splash());
-    //         },
-    //       );
-    //     } else {
-    return Sizer(builder: (context, orientation, deviceType) {
-      return MultiBlocProvider(
-        providers: [
-          BlocProvider(
-            create: (context) => MovieCubitCubit(
-                remoteMovieRepository: RemoteMovieRepository(),
-                localMovieRepository: LocalMovieRepository()),
-          ),
-          BlocProvider(
-            create: (context) =>
-                CommentCubit(commentRepository: LocalCommentRepository()),
-          ),
-        ],
-        child: GetMaterialApp(
-          debugShowCheckedModeBanner: false,
-          title: 'MOVIE',
-          theme: ThemeData.dark().copyWith(
-            primaryColor: kPrimaryColor,
-            scaffoldBackgroundColor: kPrimaryColor,
-          ),
-          home: MyHomePage(),
-        ),
-      );
-    });
+    return FutureBuilder(
+      future: Init.instance.initialize(),
+      builder: (context, AsyncSnapshot snapshot) {
+        // Show splash screen while waiting for app resources to load:
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return Sizer(
+            builder: (context, orientation, deviceType) {
+              return MaterialApp(home: Splash());
+            },
+          );
+        } else {
+          return Sizer(builder: (context, orientation, deviceType) {
+            return MultiBlocProvider(
+              providers: [
+                BlocProvider(
+                  create: (context) => MovieCubitCubit(
+                      remoteMovieRepository: RemoteMovieRepository(),
+                      localMovieRepository: LocalMovieRepository()),
+                ),
+                BlocProvider(
+                  create: (context) =>
+                      CommentCubit(commentRepository: LocalCommentRepository()),
+                ),
+              ],
+              child: GetMaterialApp(
+                debugShowCheckedModeBanner: false,
+                title: 'MOVIE',
+                theme: ThemeData.dark().copyWith(
+                  primaryColor: kPrimaryColor,
+                  scaffoldBackgroundColor: kPrimaryColor,
+                ),
+                home: MyHomePage(),
+              ),
+            );
+          });
+        }
+      },
+    );
   }
-  //     },
-  //   );
-  // }
 }
 
 class MyHomePage extends StatefulWidget {

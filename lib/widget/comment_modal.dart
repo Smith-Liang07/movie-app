@@ -165,6 +165,8 @@ class _CommentModalState extends State<CommentModal> {
                   }
                 },
                 child: Text(widget.update ? "Update" : "Submit"),
+                style: ButtonStyle(
+                    minimumSize: MaterialStateProperty.all(Size(60.w, 40))),
               ),
             ],
           ),

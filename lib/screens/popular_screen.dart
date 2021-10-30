@@ -67,7 +67,8 @@ class _PopularScreenState extends State<PopularScreen> {
                   scrollController: _scrollController,
                   movieCards: movieCards);
             }
-            if (state is MovieCubitError) return Text(state.errMsg);
+            if (state is MovieCubitError)
+              return Center(child: Text(state.errMsg));
             return Container();
           },
         ),
