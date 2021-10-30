@@ -17,7 +17,7 @@ class DB {
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       name TEXT,
       review TEXT,
-      rate INTEGER,
+      rate REAL
     )
 ''';
 }

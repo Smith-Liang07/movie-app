@@ -5,5 +5,5 @@ import 'package:sobatbisnis_assesment/model/movie_response.dart';
 
 class LocalMovieRepository {
   var databaseFuture = DatabaseHelper.db.database;
-  static const POKEMON_TABLE_NAME = 'pokemon';
+  static const POKEMON_TABLE_NAME = 'movie';
 }

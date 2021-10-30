@@ -27,6 +27,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bloc: ^7.3.1
+  flutter_rating_bar: ^4.0.0
   flutter_spinkit: ^5.1.0
   get: ^4.3.8
   http: ^0.13.4

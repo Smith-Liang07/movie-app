@@ -116,6 +116,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "flutter_rating_bar",
+      "rootUri": "file:///Users/smithl/.pub-cache/hosted/pub.dartlang.org/flutter_rating_bar-4.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "flutter_spinkit",
       "rootUri": "file:///Users/smithl/.pub-cache/hosted/pub.dartlang.org/flutter_spinkit-5.1.0",
       "packageUri": "lib/",
@@ -350,7 +356,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2021-10-29T03:53:28.131259Z",
+  "generated": "2021-10-29T17:19:16.970240Z",
   "generator": "pub",
   "generatorVersion": "2.14.4"
 }
